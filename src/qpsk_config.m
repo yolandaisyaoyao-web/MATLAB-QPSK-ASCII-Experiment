@@ -16,5 +16,7 @@ c.berBatchBits = 200000;
 c.berMaxBits = 2000000;
 c.berTargetErrors = 200;
 c.resultsDir = fullfile(rootDir, 'results');
+c.metricsDir = fullfile(c.resultsDir, 'metrics');
+c.figuresDir = fullfile(c.resultsDir, 'figures');
 c.modelFile = fullfile(rootDir, 'model', 'qpsk_ascii_system.slx');
 end
