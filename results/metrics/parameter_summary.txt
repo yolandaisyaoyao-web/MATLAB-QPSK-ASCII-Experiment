@@ -1,0 +1,19 @@
+QPSK ASCII Communication Experiment Parameters
+MATLAB release: 2022b
+MATLAB version: 9.13.0.2049777 (R2022b)
+Default message: HELLO HEU
+ASCII bits per character: 8 (MSB first)
+Modulation: Gray-coded QPSK
+Bits per symbol: 2
+Average symbol power: 1
+RRC rolloff: 0.35
+RRC span (symbols): 10
+Samples per symbol: 8
+Functional Eb/N0 (dB): 30
+Functional RNG seed: 1201
+BER RNG seed: 2402
+Eb/N0 sweep (dB): 0 2 4 6 8 10 12
+BER batch bits: 200000
+BER maximum bits per point: 2000000
+BER target errors per point: 200
+Synchronization assumption: ideal carrier and symbol timing

@@ -1,0 +1,4 @@
+Transmitted text: HELLO HEU
+Recovered text: HELLO HEU
+Bit errors: 0
+BER: 0
