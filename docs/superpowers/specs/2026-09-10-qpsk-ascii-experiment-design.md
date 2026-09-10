@@ -24,8 +24,9 @@ installation before they are used. The generated model must run in R2022b.
 Use a hybrid implementation:
 
 1. Focused MATLAB functions provide a deterministic, testable reference path.
-2. A programmatic model builder creates a readable submission-ready Simulink
-   model that exposes the required communication nodes.
+2. A model builder produces a readable, submission-ready Simulink model that
+   exposes the required communication nodes. A stable runnable R2022b model is
+   more important than exhaustive block-level automation.
 3. One configuration function supplies all shared experiment parameters.
 4. Orchestration scripts run functional verification, the BER experiment,
    model verification, and report artifact generation.
@@ -72,8 +73,11 @@ unit test rather than inferred from constellation appearance.
 - `run_ber_experiment.m`: uses long random bit streams independently of the
   short message, computes BER for 0:2:12 dB, evaluates
   `qfunc(sqrt(2*10.^(EbN0dB/10)))`, and saves numeric and plotted comparisons.
-- `build_qpsk_model.m`: creates `model/qpsk_ascii_system.slx` using block paths
-  and parameters verified in the local installation.
+- `build_qpsk_model.m`: creates or reproducibly refreshes
+  `model/qpsk_ascii_system.slx` using the simplest locally verified R2022b
+  approach. If Communications Toolbox block automation is incompatible, the
+  builder uses simpler native blocks or contained MATLAB logic instead of
+  adding compatibility layers or expanding scope.
 - `run_simulink_demo.m`: supplies input data, executes the model, extracts
   logged nodes, and verifies recovery.
 - `run_all.m`: creates output directories, builds the model, runs both paths,
@@ -99,9 +103,16 @@ independently of noise scaling.
 
 ## Simulink Model
 
-The model is generated rather than manually edited so it can be reproduced.
-It uses a simple left-to-right layout with descriptive subsystem/block names.
-It exposes or logs at least:
+The model is produced reproducibly and checked into the project. Programmatic
+generation is preferred only while it remains stable in the installed R2022b
+environment. If automated creation of specialized toolbox blocks proves
+incompatible, generation is simplified to stable native blocks, subsystems, or
+contained MATLAB logic. The design does not add version adapters, custom block
+libraries, or other machinery merely to preserve perfect automation.
+
+The saved `.slx` file must remain independently runnable and is the primary
+course-submission artifact. It uses a simple left-to-right layout with
+descriptive subsystem/block names and exposes or logs at least:
 
 - transmitted bits
 - QPSK symbols
@@ -134,7 +145,9 @@ the saved model still visibly represents and runs the required physical chain.
 - debugging evidence from automated verification
 
 Figures are saved as PNG for direct report use and FIG for later editing.
-Labels are English for compatibility and consistent rendering.
+Figure titles are Chinese because the final course report is Chinese. MATLAB
+variables and filenames remain English, and axis labels stay English where that
+is clearer or more conventional for technical quantities and units.
 
 ## Validation and Failure Behavior
 
@@ -171,6 +184,8 @@ artifact/requirements audit.
 - Simulated BER is finite, nonincreasing within documented Monte Carlo
   variability, and reasonably consistent with the theoretical QPSK curve.
 - `model/qpsk_ascii_system.slx` opens and runs in the installed R2022b version.
+- Simulink automation is no more complex than required to reproducibly produce
+  the stable R2022b-compatible model.
 - A fresh `run_all` call regenerates the documented `results/` contents from
   repository sources and fixed configuration.
 - No optional features prohibited by the specification are present.
