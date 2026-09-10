@@ -99,7 +99,7 @@ end
 
 - [ ] **Step 2: Run the tests and confirm the missing-function failure**
 
-Run: `matlab -batch "r=run('tests/TestCodingAndModulation.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestCodingAndModulation.m'); assertSuccess(r)"`
 
 Expected: FAIL because `qpsk_config` and conversion/modulation functions do not exist.
 
@@ -130,7 +130,7 @@ implement hard decisions by quadrant with exact inverse bit pairs.
 
 - [ ] **Step 4: Run the focused tests and confirm they pass**
 
-Run: `matlab -batch "r=run('tests/TestCodingAndModulation.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestCodingAndModulation.m'); assertSuccess(r)"`
 
 Expected: all tests pass with no warnings.
 
@@ -187,7 +187,7 @@ end
 
 - [ ] **Step 2: Run and confirm the link function is missing**
 
-Run: `matlab -batch "r=run('tests/TestQpskLink.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestQpskLink.m'); assertSuccess(r)"`
 
 Expected: FAIL because `simulate_qpsk_link` does not exist.
 
@@ -271,7 +271,7 @@ end
 
 - [ ] **Step 2: Run and confirm the report function is missing**
 
-Run: `matlab -batch "r=run('tests/TestReports.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestReports.m'); assertSuccess(r)"`
 
 Expected: FAIL because `run_functional_demo` does not exist.
 
@@ -338,7 +338,7 @@ end
 
 - [ ] **Step 2: Run and confirm the BER function is missing**
 
-Run: `matlab -batch "r=run('tests/TestReports.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestReports.m'); assertSuccess(r)"`
 
 Expected: FAIL because `run_ber_experiment` does not exist.
 
@@ -354,7 +354,7 @@ and a legend distinguishing simulation, theory, and upper-bound markers.
 
 - [ ] **Step 4: Run focused and full tests**
 
-Run: `matlab -batch "r=run('tests/TestReports.m'); assertSuccess(r); r=runtests('tests'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestReports.m'); assertSuccess(r); r=runtests('tests'); assertSuccess(r)"`
 
 Expected: all tests pass; reduced BER test completes without warnings.
 
@@ -413,7 +413,7 @@ end
 
 - [ ] **Step 2: Run and confirm the builder is missing**
 
-Run: `matlab -batch "r=run('tests/TestSimulinkModel.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestSimulinkModel.m'); assertSuccess(r)"`
 
 Expected: FAIL because `build_qpsk_model` does not exist.
 
@@ -447,7 +447,7 @@ MATLAB logic; do not introduce adapters or new features.
 
 - [ ] **Step 4: Run the model test and inspect the saved diagram noninteractively**
 
-Run: `matlab -batch "r=run('tests/TestSimulinkModel.m'); assertSuccess(r); load_system('model/qpsk_ascii_system.slx'); Simulink.BlockDiagram.arrangeSystem('qpsk_ascii_system'); save_system('qpsk_ascii_system'); bdclose('all')"`
+Run: `matlab -batch "r=runtests('tests/TestSimulinkModel.m'); assertSuccess(r); load_system('model/qpsk_ascii_system.slx'); Simulink.BlockDiagram.arrangeSystem('qpsk_ascii_system'); save_system('qpsk_ascii_system'); bdclose('all')"`
 
 Expected: test passes, the model runs, exact text is recovered, and the model is saved in a readable layout.
 
@@ -490,7 +490,7 @@ both MATLAB and Simulink summaries report exact recovery.
 
 - [ ] **Step 2: Run and confirm the orchestrator is missing**
 
-Run: `matlab -batch "r=run('tests/TestReports.m'); assertSuccess(r)"`
+Run: `matlab -batch "r=runtests('tests/TestReports.m'); assertSuccess(r)"`
 
 Expected: FAIL on the missing orchestration entry point.
 

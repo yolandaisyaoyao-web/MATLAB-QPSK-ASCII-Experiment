@@ -1,0 +1,6 @@
+Model file: model/qpsk_ascii_system.slx
+Transmitted text: HELLO HEU
+Recovered text: HELLO HEU
+Bit errors: 0
+Recovered exactly: 1
+Logged nodes: txBits, txSymbols, txWaveform, rxWaveform, matchedWaveform, rxSymbols, rxBits
