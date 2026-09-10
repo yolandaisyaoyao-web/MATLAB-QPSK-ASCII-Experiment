@@ -30,10 +30,14 @@ Use a hybrid implementation:
 3. One configuration function supplies all shared experiment parameters.
 4. Orchestration scripts run functional verification, the BER experiment,
    model verification, and report artifact generation.
+5. A presentation-only MATLAB App Designer interface provides interactive
+   message entry, numerical results, status feedback, and a receive
+   constellation without changing the verified reference communication path.
 
 The reference and Simulink paths use the same modulation convention and shared
-parameters. No GUI, synchronization, channel coding, frequency offsets,
-hardware deployment, or complex framing is included.
+parameters. The App is limited to the presentation layer. No synchronization,
+channel coding, frequency offsets, hardware deployment, complex framing, or
+additional GUI features are included.
 
 ## Parameters and Conventions
 
@@ -83,6 +87,8 @@ unit test rather than inferred from constellation appearance.
 - `run_all.m`: creates output directories, builds the model, runs both paths,
   and writes a final machine-readable and human-readable parameter/result
   summary.
+- `app/QPSK_ASCII_App.mlapp`: supplies the Chinese App Designer presentation
+  layer and delegates all link processing to the existing verified functions.
 
 Helpers remain small and local to their consumer unless reuse or direct testing
 requires a separate file.
@@ -145,9 +151,10 @@ the saved model still visibly represents and runs the required physical chain.
 - debugging evidence from automated verification
 
 Figures are saved as PNG for direct report use and FIG for later editing.
-Figure titles are Chinese because the final course report is Chinese. MATLAB
-variables and filenames remain English, and axis labels stay English where that
-is clearer or more conventional for technical quantities and units.
+The App interface uses Chinese by default. Future experiment demonstrations,
+figure titles, axis labels, and user-facing copy should prefer Chinese because
+the final course report is Chinese. MATLAB variables, filenames, and necessary
+technical symbols may remain English.
 
 ## Validation and Failure Behavior
 
@@ -169,6 +176,7 @@ cover:
 5. BER calculation and theoretical curve values
 6. expected report artifacts and numeric schemas
 7. generated model existence, required logged nodes, and successful execution
+8. Chinese App presentation text and a no-noise interactive round trip
 
 Each test is first observed failing for the intended missing behavior. Meaningful
 increments are verified with `matlab -batch`. Final completion requires a fresh
@@ -184,6 +192,8 @@ artifact/requirements audit.
 - Simulated BER is finite, nonincreasing within documented Monte Carlo
   variability, and reasonably consistent with the theoretical QPSK curve.
 - `model/qpsk_ascii_system.slx` opens and runs in the installed R2022b version.
+- `app/QPSK_ASCII_App.mlapp` opens in R2022b, uses Chinese presentation text,
+  and calls the unchanged verified communication functions.
 - Simulink automation is no more complex than required to reproducibly produce
   the stable R2022b-compatible model.
 - A fresh `run_all` call regenerates the documented `results/` contents from

@@ -21,6 +21,13 @@ Do not add optional features before all core tests pass.
 - Save reproducible report-ready figures and metrics under results/.
 - Preserve the `.slx` model required for course submission.
 
+## Presentation Language
+
+- The project includes a MATLAB App Designer interface under `app/`.
+- The App uses Chinese by default.
+- Prefer Chinese for future experiment demonstrations, figure titles, axis labels, and user-facing interface copy.
+- Filenames, variable names, and required technical symbols may remain English.
+
 ## Communication
 
 Keep responses concise.
@@ -37,5 +44,7 @@ If a routine engineering choice can safely be made, make it and document it inst
 
 ## Scope
 
-Do not add GUI, synchronization algorithms, complex frame protocols,
-hardware deployment, channel coding or unrelated abstractions unless explicitly requested.
+Keep the existing App Designer interface limited to experiment presentation.
+Do not add other GUI features, synchronization algorithms, complex frame
+protocols, hardware deployment, channel coding or unrelated abstractions
+unless explicitly requested.
