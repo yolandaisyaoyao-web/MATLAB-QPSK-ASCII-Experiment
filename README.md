@@ -76,3 +76,19 @@ Automated verification
 
 results/
 Figures and experiment data
+
+
+## 报告图片与本地资料
+
+- `results/figures/`：原始实验图。
+- `results/report_figures/`：根据现有数值结果自动生成的中文报告级图片（白色背景、300 dpi PNG）。
+- `docs/report/assets/figures/`：最终实验报告使用的精选图片。
+- `docs/report/reference/`：本地课程资料，仅供编写报告时参考，不上传公开仓库。
+
+无需重新运行或修改通信算法，可从现有数值结果重新生成报告级图片：
+
+```matlab
+addpath('src'); generate_report_figures(qpsk_config())
+```
+
+带编号的中文文件名涵盖发送星座图、低/高信噪比接收星座图、BER 曲线、关键节点波形和信号频谱。

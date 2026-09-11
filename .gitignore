@@ -20,3 +20,7 @@ Thumbs.db
 
 # Large temporary files
 *.tmp
+
+# Local course reference materials (not published)
+/docs/report/reference/*.pdf
+/docs/report/reference/*.docx
