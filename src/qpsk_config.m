@@ -18,5 +18,6 @@ c.berTargetErrors = 200;
 c.resultsDir = fullfile(rootDir, 'results');
 c.metricsDir = fullfile(c.resultsDir, 'metrics');
 c.figuresDir = fullfile(c.resultsDir, 'figures');
+c.reportFiguresDir = fullfile(c.resultsDir, 'report_figures');
 c.modelFile = fullfile(rootDir, 'model', 'qpsk_ascii_system.slx');
 end
