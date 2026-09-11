@@ -53,7 +53,7 @@ and Eb/N0 may remain English.
 
 ## Verification
 
-19 tests passed.
+20 tests passed.
 
 Recovered message:
 

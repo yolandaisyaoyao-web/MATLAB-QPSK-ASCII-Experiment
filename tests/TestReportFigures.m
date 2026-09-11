@@ -23,7 +23,8 @@ classdef TestReportFigures < matlab.unittest.TestCase
                 fullfile(c.figuresDir, name)), originalNames, ...
                 'UniformOutput', false);
 
-            outputFiles = generate_report_figures(c);
+            [outputFiles, reportFontName] = generate_report_figures(c);
+            testCase.verifyEqual(reportFontName, 'Microsoft YaHei UI');
 
             expectedNames = {
                 '图1_QPSK发送星座图.png'
